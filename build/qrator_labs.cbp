@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="qrator_labs"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/vkurbatov/work/qrator/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/vkurbatov/work/qrator/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="qrator_labs">
+				<Option output="/home/vkurbatov/work/qrator/build/qrator_labs" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vkurbatov/work/qrator/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/vkurbatov/work/qrator/."/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/7.4.0/../../../../include/c++/7.4.0"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/7.4.0/../../../../include/x86_64-linux-gnu/c++/7.4.0"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/7.4.0/../../../../include/c++/7.4.0/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/llvm-6.0/lib/clang/6.0.0/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 qrator_labs"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="qrator_labs/fast">
+				<Option output="/home/vkurbatov/work/qrator/build/qrator_labs" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vkurbatov/work/qrator/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/vkurbatov/work/qrator/."/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/7.4.0/../../../../include/c++/7.4.0"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/7.4.0/../../../../include/x86_64-linux-gnu/c++/7.4.0"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/7.4.0/../../../../include/c++/7.4.0/backward"/>
+					<Add directory="/usr/include/clang/6.0.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/llvm-6.0/lib/clang/6.0.0/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 qrator_labs/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/vkurbatov/work/qrator/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vkurbatov/work/qrator/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/vkurbatov/work/qrator/common/common.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/common/defines.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/common/fill_array.c">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/common/print_array.c">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/main.cpp">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task1/local_minimum.c">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task1/local_minimum.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task1/task1.cpp">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task2/k_sort.c">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task2/k_sort.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task2/task2.cpp">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/task3.cpp">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/thread_pool.cpp">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/thread_pool.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/tasks.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
