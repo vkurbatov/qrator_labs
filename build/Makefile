@@ -366,6 +366,33 @@ task3/thread_pool.cpp.s:
 	$(MAKE) -f CMakeFiles/qrator_labs.dir/build.make CMakeFiles/qrator_labs.dir/task3/thread_pool.cpp.s
 .PHONY : task3/thread_pool.cpp.s
 
+task3/tools/thread.o: task3/tools/thread.cpp.o
+
+.PHONY : task3/tools/thread.o
+
+# target to build an object file
+task3/tools/thread.cpp.o:
+	$(MAKE) -f CMakeFiles/qrator_labs.dir/build.make CMakeFiles/qrator_labs.dir/task3/tools/thread.cpp.o
+.PHONY : task3/tools/thread.cpp.o
+
+task3/tools/thread.i: task3/tools/thread.cpp.i
+
+.PHONY : task3/tools/thread.i
+
+# target to preprocess a source file
+task3/tools/thread.cpp.i:
+	$(MAKE) -f CMakeFiles/qrator_labs.dir/build.make CMakeFiles/qrator_labs.dir/task3/tools/thread.cpp.i
+.PHONY : task3/tools/thread.cpp.i
+
+task3/tools/thread.s: task3/tools/thread.cpp.s
+
+.PHONY : task3/tools/thread.s
+
+# target to generate assembly for a file
+task3/tools/thread.cpp.s:
+	$(MAKE) -f CMakeFiles/qrator_labs.dir/build.make CMakeFiles/qrator_labs.dir/task3/tools/thread.cpp.s
+.PHONY : task3/tools/thread.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -402,6 +429,9 @@ help:
 	@echo "... task3/thread_pool.o"
 	@echo "... task3/thread_pool.i"
 	@echo "... task3/thread_pool.s"
+	@echo "... task3/tools/thread.o"
+	@echo "... task3/tools/thread.i"
+	@echo "... task3/tools/thread.s"
 .PHONY : help
 
 

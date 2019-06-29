@@ -128,6 +128,21 @@
 		<Unit filename="/home/vkurbatov/work/qrator/task3/thread_pool.h">
 			<Option target="qrator_labs"/>
 		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/tools/i_thread.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/tools/i_worker.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/tools/thread.cpp">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/tools/thread.h">
+			<Option target="qrator_labs"/>
+		</Unit>
+		<Unit filename="/home/vkurbatov/work/qrator/task3/tools/tools_types.h">
+			<Option target="qrator_labs"/>
+		</Unit>
 		<Unit filename="/home/vkurbatov/work/qrator/tasks.h">
 			<Option target="qrator_labs"/>
 		</Unit>
