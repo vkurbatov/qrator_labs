@@ -16,7 +16,8 @@ public:
 	virtual ~IWorker() {}
 
 public:
-	virtual thread_result_t Main() = 0;
+	virtual thread_result_t Execute() = 0;
+	virtual bool CanExecute() const = 0;
 };
 
 } // tools

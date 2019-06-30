@@ -9,11 +9,12 @@ extern "C"
 
 #include "common/defines.h"
 
+#define LOCAL_MINIMUN_METHOD_SIMPLE		0
+#define LOCAL_MINIMUN_METHOD_EXTENDED	1
+
 //! return index of local index between 0 and {size-1}, otherwise -1 
 int get_index_of_local_minimum(const element_t* array, size_t size, int method);
 
-//! return last cycles for find loacl minimum operation
-int get_last_cycles_count();
 
 #ifdef __cplusplus
 } // extern "C"

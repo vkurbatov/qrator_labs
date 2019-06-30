@@ -8,43 +8,27 @@
 
 #include "local_minimum.h"
 
-static int last_cycles_count = 0;
-
-int get_last_cycles_count()
-{
-	return last_cycles_count;
-}
-
 static int simple_method(const element_t* array, size_t size)
 {
 	int result = NOINDEX;
 
 	if (array[0] < array[1])
 	{
-		last_cycles_count = 1;
 		result = 0;
 	}
 	else if (array[size - 1] < array[size - 2])
 	{
-		last_cycles_count = 1;
 		result = size - 1;
 	}
 	else
 	{
-
-		int delta[] = { 0, 0 };
-
-		for (int i = 0; i < size - 1; ++i)
+		for (int i = 1; i < size - 2; ++i)
 		{
-			delta[1] = array[i + 1] - array[i];
-
-			if (delta[0] < 0 && delta[1] > 0)
+			if (array[i - 1] > array[i] && array[i] < array[i + 1])
 			{
 				result = i;
 				break;
 			}
-
-			delta[0] = delta[1];
 		}
 	}
 
@@ -55,49 +39,46 @@ static int extended_method(const element_t* array, size_t size)
 {
 	int result = NOINDEX;
 
-	int lo_idx = size / 2;
-	int hi_idx = lo_idx;
+	int l_idx = 1;
+	int h_idx = size - 2;
 
-	while (lo_idx > 0 || (hi_idx < size - 1))
+	while(l_idx < h_idx)
 	{
-		last_cycles_count++;
-		if (lo_idx > 0)
+		while(l_idx < h_idx && array[l_idx - 1] <= array[l_idx])
 		{
-			int delta = array[lo_idx] - array[lo_idx + 1];
-
-			if (delta < 0 && (array[lo_idx - 1] > array[lo_idx]))
-			{
-				result = lo_idx;
-				break;
-			}
-
-			lo_idx -= delta > 0 ? 2 : 1;
+			l_idx++;
 		}
 
-		if (hi_idx < (size - 1))
+		while (l_idx < h_idx && array[h_idx] >= array[h_idx + 1])
 		{
-			int delta = array[hi_idx] - array[hi_idx + 1];
+			h_idx--;
+		}
 
-			if (delta < 0 && array[hi_idx - 1] > array[hi_idx])
+		if (l_idx < h_idx)
+		{
+			if (array[l_idx] < array[l_idx + 1])
 			{
-				result = hi_idx;
+				result = l_idx;
 				break;
 			}
-
-			hi_idx += delta > 0 ? 2 : 1;
+			else if (array[h_idx - 1] > array[h_idx])
+			{
+				result = h_idx;
+				break;
+			}
 		}
+		l_idx++;
+		h_idx--;
 	}
 
 	if (result == NOINDEX)
 	{
 		if (array[0] < array[1])
 		{
-			last_cycles_count = 1;
 			result = 0;
 		}
 		else if (array[size - 1] < array[size - 2])
 		{
-			last_cycles_count = 1;
 			result = size - 1;
 		}
 	}
@@ -109,7 +90,6 @@ int get_index_of_local_minimum(const element_t* array, size_t size, int method)
 {
 	static int(*k_local_min_methods[])(const element_t*, size_t) = { simple_method, extended_method };
 
-	last_cycles_count = 0;
 
 	return size > 1 ? k_local_min_methods[method](array, size) : NOINDEX;
 }

@@ -2,6 +2,8 @@
 #include "common/common.h"
 #include "k_sort.h"
 
+#include "task1/local_minimum.h"
+
 #include <iostream>
 
 namespace qrator_labs
@@ -43,22 +45,18 @@ std::int32_t test1()
 		std::cout << "Swap count = " << swap_count << std::endl;
 	}
 
-	return 0;
+	auto local_mininum_index = get_index_of_local_minimum(source_array, default_array_size, LOCAL_MINIMUN_METHOD_EXTENDED);
 
-	/*
-
-	auto local_minimum_index = get_index_of_local_minimum(source_array, default_array_size);
-
-	if (local_minimum_index == NOINDEX)
+	if (local_mininum_index == NOINDEX)
 	{
 		std::cout << "Local minimum index not found" << std::endl;
 	}
 	else
 	{
-		std::cout << "Local minimum index = " << local_minimum_index << std::endl;
+		std::cout << "Local minimum index = " << local_mininum_index << std::endl;
 	}
 
-	return 0;*/
+	return 0;
 }
 
 } // task1

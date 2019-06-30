@@ -8,9 +8,10 @@ extern "C"
 
 #include "common/defines.h"
 
-int	k_sort(element_t* array, size_t size, int method);
+#define K_SORT_METHOD_1	0
+#define K_SORT_METHOD_2	1
 
-int n_swaps(const element_t* array, size_t size);
+int	k_sort(element_t* array, size_t size, int method);
 
 #ifdef __cplusplus
 } // extern "C"

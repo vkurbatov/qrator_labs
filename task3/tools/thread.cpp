@@ -1,23 +1,33 @@
 #include "task3/tools/thread.h"
 
+
 namespace qrator_labs
 {
 
 namespace tools
 {
 
-namespace thread_utils
+void* thread_proc(void* context)
 {
+	thread_result_t result = 0;
 
-}
+	Thread*	thread = reinterpret_cast<Thread*>(context);
 
-Thread::Thread()
-	: m_thread_id(0)
-{
-	pthread_t threadl;
+	if (thread->IsRunning() && thread->m_acvive_worker.CanExecute())
+	{
+		result = thread->m_acvive_worker.Execute();
+	}
+
+	thread->m_is_running = false;
+
+	return reinterpret_cast<void*>(result);
 }
 
 Thread::Thread(IWorker& worker)
+	: m_acvive_worker(worker)
+	, m_is_running(false)
+	, m_thread_id(0)
+	, m_joinable(false)
 {
 
 }
@@ -25,39 +35,59 @@ Thread::Thread(IWorker& worker)
 Thread::~Thread()
 {
 	Join();
+}
 
+const IWorker &Thread::GetActiveWorker() const
+{
+	return m_acvive_worker;
 }
 
 bool Thread::IsRunning() const
 {
-	return false;
+	return m_is_running;
 }
 
-bool Thread::Start(IWorker& worker)
+bool Thread::Start()
 {
-
-	return false;
+	return m_joinable ? false : create_thread();
 }
 
 bool Thread::Join()
 {
-
+	if (m_joinable)
+	{
+		pthread_join(m_thread_id, nullptr);
+		m_joinable = false;
+		m_is_running = false;
+		return true;
+	}
+	return false;
 }
 
-pthread_t Thread::internal_create_thread(IWorker& worker)
+bool Thread::Joinable() const
 {
-
+	return m_joinable;
 }
 
-/*Thread::Thread()
+bool Thread::create_thread()
 {
 
+	bool result = false;
+	pthread_attr_t	thread_attribute;
+
+	pthread_attr_init(&thread_attribute);
+
+	m_is_running = true;
+
+	result = pthread_create(&m_thread_id, &thread_attribute, thread_proc, this) >= 0;
+
+	result &= m_thread_id > 0;
+
+	m_joinable = result;
+
+	return result;
 }
 
-Thread::Thread(IWorker& worker)
-{
-
-}*/
 
 } // tools
 

@@ -22,25 +22,38 @@ static void swap(element_t* array, int idx_a, int idx_b)
 	array[idx_a] = b_val;
 }
 
-static int get_index_of_min_element(const element_t* array, size_t size)
+static int get_inflection_index(const element_t* array, int start_index, int end_index)
 {
-	int result = 0;
+	int result = start_index;
 
-	element_t min_value = array[size - 1];
+	int direction;
 
-	while(size-- > 0)
+	while ((direction = end_index - start_index) != 0)
 	{
-		if (array[size] < min_value)
+		if (direction > 0)
 		{
-			result = size;
-			min_value = array[size];
+			if (array[start_index] < array[start_index + 1])
+			{
+				result = start_index;
+				break;
+			}
+			start_index++;
+		}
+		else
+		{
+			if (array[start_index - 1] > array[start_index])
+			{
+				result = start_index;
+				break;
+			}
+			start_index--;
 		}
 	}
 
 	return result;
 }
 
-static int simple_k_sort(element_t* array, size_t size)
+static int k_sort_method_1(element_t* array, size_t size)
 {
 	int result = 0;
 
@@ -49,13 +62,13 @@ static int simple_k_sort(element_t* array, size_t size)
 
 	while (lo_idx < hi_idx)
 	{
-		if (array[lo_idx] < array[lo_idx + 1])
+		if (array[lo_idx] <= array[lo_idx + 1])
 		{
 			swap(array, lo_idx, lo_idx + 1);
 			result++;
 		}
 
-		if (array[hi_idx] > array[hi_idx + 1])
+		if (array[hi_idx] >= array[hi_idx + 1])
 		{
 			swap(array, hi_idx, hi_idx + 1);
 			result++;
@@ -67,54 +80,14 @@ static int simple_k_sort(element_t* array, size_t size)
 
 	if (result > 0)
 	{
-		result += simple_k_sort(array, size);
+		result += k_sort_method_1(array, size);
 	}
 
 	return result;
 }
 
-static int get_min_index(const element_t* array, int start_index, int end_index)
-{
-	int result = 0;
 
-	int direction;
-
-	int delta[] = { 0, 0 };
-
-	while ((direction = end_index - start_index) != 0)
-	{
-		if (direction > 0)
-		{
-			delta[1] = array[start_index + 1] - array[start_index];
-
-			if (delta[0] <= 0 && delta[1] > 0)
-			{
-				result = start_index;
-				break;
-			}
-
-			start_index++;
-		}
-		else
-		{
-			delta[1] = array[start_index - 1] - array[start_index];
-
-			if (delta[0] <= 0 && delta[1] > 0)
-			{
-				result = start_index;
-				break;
-			}
-
-			start_index--;
-		}
-
-		delta[0] = delta[1];
-	}
-
-	return result;
-}
-
-static int k_sort_3(element_t* array, size_t size)
+static int k_sort_method_2(element_t* array, size_t size)
 {
 	int result = 0;
 
@@ -127,8 +100,8 @@ static int k_sort_3(element_t* array, size_t size)
 	{
 		done = 1;
 
-		h_idx = get_min_index(array, 0, size - 1);
-		t_idx = get_min_index(array, size - 1, 0);
+		h_idx = get_inflection_index(array, 0, size - 1);
+		t_idx = get_inflection_index(array, size - 1, 0);
 
 		if (h_idx < t_idx)
 		{
@@ -153,12 +126,8 @@ static int k_sort_3(element_t* array, size_t size)
 
 int	k_sort(element_t* array, size_t size, int method)
 {
-	static int(*k_sort_methods[])(element_t*, size_t) = { simple_k_sort, k_sort_3 };
+	static int(*k_sort_methods[])(element_t*, size_t) = { k_sort_method_1, k_sort_method_2 };
 
 	return k_sort_methods[method](array, size);
 }
 
-int n_swaps(const element_t* array, size_t size)
-{
-	return 0;
-}

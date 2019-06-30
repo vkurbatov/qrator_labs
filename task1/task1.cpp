@@ -26,7 +26,7 @@ std::int32_t test1()
 
 	print_array(source_array, default_array_size, ", ");
 
-	auto local_minimum_index = get_index_of_local_minimum(source_array, default_array_size, 0);
+	auto local_minimum_index = get_index_of_local_minimum(source_array, default_array_size, LOCAL_MINIMUN_METHOD_EXTENDED);
 
 	if (local_minimum_index == NOINDEX)
 	{
